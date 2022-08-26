@@ -1,28 +1,3 @@
-# My npm card
-
-Run
-Via npx
-
-Stetps
-
-1. You can fork in the repo of [Bxtard](https://github.com/bxtard/npm-profile-card) or just go creating your files.
-
-```bash
-# Create new folder
-$ mkdir npm-profile-card && cd $_
-
-# Init the npm package
-$ npm init
-
-# dependencies
-$ npm install
-
-# Create bin folder
-$ mkdir bin && cd $_
-
-# Create the card.js file
-$ touch bin/card.js
-
 #!/usr/bin/env node
 // 👆 Used to tell Node.js that this is a CLI tool
 
@@ -58,7 +33,7 @@ const data = {
   labelCard: chalk.white.bold('      Card:')
 }
 
-// Actual strings we are going to output
+// Actual strings we're going to output
 const newline = '\n'
 const heading = `${data.name} / ${data.handle} / ${data.shorthandle}`
 const working = `${data.labelWork}  ${data.work}`
@@ -81,4 +56,3 @@ const output = heading + // data.name + data.handle
 const content = chalk.green(boxen(output, options))
 
 console.log(content)
-
