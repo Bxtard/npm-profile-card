@@ -3,9 +3,7 @@
 Run
 Via npx
 
-Stetps
-
-1. You can fork in the repo of [Bxtard](https://github.com/bxtard/npm-profile-card) or just go creating your files.
+You can fork in the repo of [Bxtard](https://github.com/bxtard/npm-profile-card) or just go creating your files.
 
 ```bash
 # Create new folder
@@ -22,63 +20,57 @@ $ mkdir bin && cd $_
 
 # Create the card.js file
 $ touch bin/card.js
+```
 
+then copy
+
+```js
 #!/usr/bin/env node
 // 👆 Used to tell Node.js that this is a CLI tool
 
 'use strict'
 
-// Pull in our modules
 import chalk from 'chalk'
 import boxen from 'boxen'
 
-// Define options for Boxen
 const options = {
   padding: 1,
   margin: 1,
   borderStyle: 'round'
 }
 
-// Text + chalk definitions
 const data = {
   name: chalk.white('  Bryan Steeven Estrada Meza'),
   handle: chalk.white('@Bxtard'),
-  shorthandle: chalk.white('bxtrd'),
-  work: chalk.white('FullStack developer'),
-  instagram: chalk.gray('https://instagram.com/') + chalk.cyan('bxtrda'),
+  shorthandle: chalk.white('bxtard'),
+  work: chalk.white('Ombia Junior Software Developer III'),
   github: chalk.gray('https://github.com/') + chalk.green('bxtrd'),
   linkedin: chalk.gray('https://www.linkedin.com/in/') + chalk.blue('bxtrda'),
-  // web: chalk.cyan('YOUR_WEB_SITE_URL'),
+  portafolio: chalk.cyan('https://bxtard.github.io/portafolio/'),
   npx: chalk.red('npx') + ' ' + chalk.white('bxtard'),
   labelWork: chalk.white.bold('      Work:'),
-  labelInstagram: chalk.white.bold(' Instagram:'),
   labelGitHub: chalk.white.bold('    GitHub:'),
   labelLinkedIn: chalk.white.bold('  LinkedIn:'),
-  // labelWeb: chalk.white.bold('     Web:'),
+  labelPortafolio: chalk.white.bold('Portafolio:'),
   labelCard: chalk.white.bold('      Card:')
 }
 
-// Actual strings we are going to output
 const newline = '\n'
-const heading = `${data.name} / ${data.handle} / ${data.shorthandle}`
-const working = `${data.labelWork}  ${data.work}`
-const instagraming = `${data.labelInstagram}  ${data.instagram}`
-const githubing = `${data.labelGitHub}  ${data.github}`
-const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`
-// const webing = `${data.labelWeb}  ${data.web}`
+const head = `${data.name} / ${data.handle} / ${data.shorthandle}`
+const work = `${data.labelWork}  ${data.work}`
+const github = `${data.labelGitHub}  ${data.github}`
+const linkedin = `${data.labelLinkedIn}  ${data.linkedin}`
+const portafolio = `${data.labelPortafolio}  ${data.portafolio}`
 const carding = `${data.labelCard}  ${data.npx}`
 
-// Put all our output together into a single variable so we can use boxen effectively
-const output = heading + // data.name + data.handle
-               newline + newline + // Add one whole blank line
-               working + newline + // data.labelWork + data.work
-               instagraming + newline + // data.labelTwitter + data.twitter
-               githubing + newline + // data.labelGitHub + data.github
-               linkedining + newline + // data.labelLinkedIn + data.linkedin
-               // webing + newline + newline + // data.labelWeb + data.web
-               carding // data.labelCard + data.npx
-
+const output =  head +
+                newline + newline +
+                work + newline +
+                github + newline +
+                linkedin + newline +
+                portafolio + newline +
+                carding
 const content = chalk.green(boxen(output, options))
 
 console.log(content)
-
+```
